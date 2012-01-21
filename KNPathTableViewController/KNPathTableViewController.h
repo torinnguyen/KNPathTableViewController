@@ -26,16 +26,21 @@
 #define KNPathTableSlideInOffset         16.0
 #define KNPathTableOverlayDefaultSize    CGSizeMake(150, 32)
 
-@interface KNPathTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
-  UIView * __infoPanel;
-  CGSize   __infoPanelSize;
-  CGRect   __infoPanelInitialFrame;
-  CGFloat  __initalScrollIndicatorHeight;
-  UITableView * __tableView;
+@interface KNPathTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+{
+    // The additional small overlay hovering above table view
+    UIView * __infoPanel;
+    
+    // The label within the above overlay
+    UILabel * infoLabel;
+    
+    // Geometric parameters of the above overlay
+    CGSize   __infoPanelSize;
+    CGRect   __infoPanelInitialFrame;
+    CGFloat  __initalScrollIndicatorHeight;
 }
 
 @property (nonatomic,readonly) UIView * infoPanel;
-@property (nonatomic,readonly) UITableView * tableView;
 
 -(id)initWithStyle:(UITableViewStyle)style;
 -(id)initWithStyle:(UITableViewStyle)style infoPanelSize:(CGSize)size;
